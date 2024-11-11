@@ -1,0 +1,15 @@
+--Skapar tabeller som visar prislista från olika grossister--
+SELECT
+    Suppliers.FirstName || ' ' || Suppliers.LastName AS 'Kontaktperson',
+    Suppliers.PhoneNumber AS 'Telefonnummer',
+    Suppliers.City AS 'Stad',
+    Products.Name AS 'Produkt',
+    SupplierProducts.PriceKg AS 'Pris/kg'
+FROM 
+    SupplierProducts
+INNER JOIN 
+    Suppliers ON SupplierProducts.SupplierId = Suppliers.Id
+INNER JOIN 
+    Products ON SupplierProducts.ProductId = Products.Id
+ORDER BY 
+    Suppliers.Id, Products.Name;

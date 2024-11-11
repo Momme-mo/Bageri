@@ -1,0 +1,27 @@
+SELECT 
+    Recipes.Name AS 'Recept',
+    GROUP_CONCAT(Products.Name || ' ' || RecipeProducts.Quantity || 'g') AS 'Ingredienser'
+FROM 
+    RecipeProducts
+INNER JOIN 
+    Recipes ON RecipeProducts.RecipeId = Recipes.Id
+INNER JOIN 
+    Products ON RecipeProducts.ProductId = Products.Id
+WHERE 
+    Recipes.Name = 'Pannkakor'
+GROUP BY 
+    Recipes.Name;
+
+SELECT 
+    Recipes.Name AS 'Recept',
+    GROUP_CONCAT(Products.Name || ' ' || RecipeProducts.Quantity || 'g') AS 'Ingredienser'
+FROM 
+    RecipeProducts
+INNER JOIN 
+    Recipes ON RecipeProducts.RecipeId = Recipes.Id
+INNER JOIN 
+    Products ON RecipeProducts.ProductId = Products.Id
+WHERE 
+    Recipes.Name = 'Choklad kaka'
+GROUP BY 
+    Recipes.Name;

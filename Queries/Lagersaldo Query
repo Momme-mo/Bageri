@@ -1,0 +1,15 @@
+--Lagersaldo--
+SELECT
+    Suppliers.FirstName AS 'Grossist',
+    SalesOrders.OrderDate AS 'Beställningsdatum',
+    Products.Name AS 'Produkt',
+    SalesOrders.Quantity AS 'Lagersaldo'
+FROM 
+    SalesOrders
+INNER JOIN 
+    Suppliers ON SalesOrders.SupplierId = Suppliers.Id
+INNER JOIN 
+    Products ON SalesOrders.ProductId = Products.Id
+INNER JOIN 
+    SupplierProducts ON SalesOrders.SupplierId = SupplierProducts.SupplierId 
+                     AND SalesOrders.ProductId = SupplierProducts.ProductId;

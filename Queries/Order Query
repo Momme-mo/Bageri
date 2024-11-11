@@ -1,0 +1,22 @@
+--Beställnings översikt--
+SELECT 
+    SalesOrders.Id AS OrderId,
+    OrderDate,
+    FirstName || ' ' || LastName AS 'Grossist',
+    PhoneNumber AS 'Telefonnummer',
+    Email,
+    City,
+    PostalCode,
+    Name AS Produkter,
+    Quantity,
+    PriceKg,
+    (SalesOrders.Quantity * SupplierProducts.PriceKg) AS Totalsumma
+FROM 
+    SalesOrders
+INNER JOIN 
+    Suppliers ON SalesOrders.SupplierId = Suppliers.Id
+INNER JOIN 
+    Products ON SalesOrders.ProductId = Products.Id
+INNER JOIN 
+    SupplierProducts ON SalesOrders.SupplierId = SupplierProducts.SupplierId 
+                     AND SalesOrders.ProductId = SupplierProducts.ProductId;

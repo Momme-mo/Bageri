@@ -1,0 +1,18 @@
+DROP TABLE Suppliers;
+
+DROP TABLE Products;
+
+DROP TABLE SupplierProducts;
+
+DROP TABLE SalesOrders;
+
+DROP TABLE Recipes;
+
+DROP TABLE RecipesProducts;
+
+DELETE FROM Suppliers;
+DELETE FROM Products;
+DELETE FROM SupplierProducts;
+DELETE FROM SalesOrders;
+DELETE FROM Recipes;
+DELETE FROM RecipeProducts;
