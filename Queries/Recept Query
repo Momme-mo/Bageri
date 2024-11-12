@@ -25,3 +25,5 @@ WHERE
     Recipes.Name = 'Choklad kaka'
 GROUP BY 
     Recipes.Name;
+
+    
